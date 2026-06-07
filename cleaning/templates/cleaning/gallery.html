@@ -1,0 +1,510 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Gallery | TISA Cleaning Sydney
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ===============================
+   HERO
+================================ */
+
+.gallery-hero{
+    background: linear-gradient(135deg,#0f172a,#1e40af);
+    padding:140px 20px;
+    text-align:center;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+}
+
+.gallery-hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,.05);
+    border-radius:50%;
+    top:-200px;
+    right:-150px;
+}
+
+.gallery-hero .container{
+    max-width:1200px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:.85rem;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.gallery-hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    line-height:1.1;
+}
+
+.gallery-hero p{
+    max-width:750px;
+    margin:auto;
+    color:#dbeafe;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+/* ===============================
+   STATS
+================================ */
+
+.gallery-stats{
+    margin-top:-60px;
+    position:relative;
+    z-index:10;
+}
+
+.stats-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-card{
+    background:#fff;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.stat-card h3{
+    color:#2563eb;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#64748b;
+}
+
+/* ===============================
+   SECTION HEADER
+================================ */
+
+.section-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-header span{
+    color:#2563eb;
+    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.section-header h2{
+    font-size:3rem;
+    margin:15px 0;
+    color:#0f172a;
+}
+
+.section-header p{
+    max-width:700px;
+    margin:auto;
+    color:#64748b;
+    line-height:1.8;
+}
+
+/* ===============================
+   GALLERY
+================================ */
+
+.gallery-section{
+    padding:60px 10px;
+}
+
+.gallery-container{
+    max-width:1300px;
+    margin:auto;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.gallery-item{
+    position:relative;
+    height:340px;
+    overflow:hidden;
+    border-radius:24px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    padding:25px;
+    background:linear-gradient(
+        to top,
+        rgba(15,23,42,.95),
+        rgba(15,23,42,.15),
+        transparent
+    );
+}
+
+.overlay h3{
+    color:#fff;
+    font-size:1.2rem;
+    margin:0;
+}
+
+/* ===============================
+   BEFORE AFTER
+================================ */
+
+.before-after{
+    background:#f8fafc;
+    padding:60px 10px;
+}
+
+.before-after-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.before-box,
+.after-box{
+    position:relative;
+    height:450px;
+    overflow:hidden;
+    border-radius:24px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.before-box img,
+.after-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.before-box span,
+.after-box span{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+/* ===============================
+   CTA
+================================ */
+
+.gallery-cta{
+    padding:60px 10px;
+}
+
+.cta-box{
+    max-width:1200px;
+    margin:auto;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:#fff;
+    padding:70px;
+    border-radius:30px;
+    text-align:center;
+}
+
+.cta-box h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta-box p{
+    max-width:700px;
+    margin:auto;
+    color:#dbeafe;
+    line-height:1.8;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:30px;
+    background:#fff;
+    color:#2563eb;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.cta-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:991px){
+
+.gallery-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.before-after-grid{
+    grid-template-columns:1fr;
+}
+
+.gallery-hero h1{
+    font-size:3rem;
+}
+
+.section-header h2{
+    font-size:2.4rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.gallery-hero{
+    padding:60px 10px;
+}
+
+.gallery-hero h1{
+    font-size:2.2rem;
+}
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+.gallery-grid{
+    grid-template-columns:1fr;
+}
+
+.gallery-item{
+    height:280px;
+}
+
+.before-box,
+.after-box{
+    height:300px;
+}
+
+.section-header h2{
+    font-size:2rem;
+}
+
+.cta-box{
+    padding:45px 25px;
+}
+
+.cta-box h2{
+    font-size:2rem;
+}
+
+.gallery-section,
+.before-after,
+.gallery-cta{
+    padding:80px 15px;
+}
+
+}
+
+</style>
+
+<!-- HERO -->
+
+<section class="gallery-hero">
+    <div class="container">
+        <span class="hero-badge">Our Work</span>
+        <h1>See The Difference Professional Cleaning Makes</h1>
+        <p>
+            Explore our recent cleaning projects across Sydney and discover
+            the quality, attention to detail, and professional results that
+            make TISA Cleaning a trusted choice for homes and businesses.
+        </p>
+    </div>
+</section>
+
+<!-- STATS -->
+
+<section class="gallery-stats">
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>500+</h3>
+            <p>Projects Completed</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>5+</h3>
+            <p>Years Experience</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>100%</h3>
+            <p>Customer Satisfaction</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Support Available</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery-section">
+
+    <div class="gallery-container">
+
+        <div class="section-header">
+            <span>Project Showcase</span>
+            <h2>Recent Cleaning Projects</h2>
+            <p>
+                Professional cleaning solutions delivered across Sydney.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery1.jpg' %}" alt="Strata Cleaning Sydney">
+                <div class="overlay">
+                    <h3>Strata Cleaning</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery2.jpg' %}" alt="Window Cleaning Sydney">
+                <div class="overlay">
+                    <h3>Window Cleaning</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery3.jpg' %}" alt="Pressure Cleaning Sydney">
+                <div class="overlay">
+                    <h3>High Pressure Cleaning</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery4.jpg' %}" alt="End Of Lease Cleaning">
+                <div class="overlay">
+                    <h3>End Of Lease Cleaning</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery5.jpg' %}" alt="Gutter Cleaning Sydney">
+                <div class="overlay">
+                    <h3>Gutter Cleaning</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery6.jpg' %}" alt="Commercial Cleaning Sydney">
+                <div class="overlay">
+                    <h3>Commercial Cleaning</h3>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BEFORE & AFTER -->
+
+<section class="before-after">
+
+    <div class="section-header">
+        <span>Transformation</span>
+        <h2>Before & After Results</h2>
+    </div>
+
+    <div class="before-after-grid">
+
+        <div class="before-box">
+            <img src="{% static 'images/before.jpg' %}" alt="Before Cleaning">
+            <span>Before</span>
+        </div>
+
+        <div class="after-box">
+            <img src="{% static 'images/after.jpg' %}" alt="After Cleaning">
+            <span>After</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="gallery-cta">
+
+    <div class="cta-box">
+
+        <h2>Ready To Transform Your Property?</h2>
+
+        <p>
+            Whether you need strata cleaning, gutter cleaning, window cleaning,
+            pressure washing or end-of-lease cleaning, our team is ready to help.
+        </p>
+
+        <a href="/#contact" class="cta-btn">
+            Get Free Quote
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -10,5 +10,8 @@ def about(request):
 def service(request):
     return render(request,"cleaning/service.html")
     
+def gallery(request):
+    return render(request,"cleaning/gallery.html")
+    
 def contact(request):
     return render(request,"cleaning/contact.html")
