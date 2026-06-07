@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Professional Cleaning Services Sydney | Cleaning Co
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="container hero-wrapper">
+        <div class="hero-content">
+            <span class="hero-badge">Sydney's Trusted Cleaning Experts</span>
+            <h1>Spotless Results. Every Single Time.</h1>
+            <p>From high-rise strata properties to end-of-lease cleans, we bring precision, reliability, and eco-friendly standards to every project in Sydney.</p>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Get Free Quote</a>
+                <a href="tel:+61451183783" class="btn-secondary">Call Now</a>
+            </div>
+
+            <div class="hero-features">
+                <div>✓ Fully Insured</div>
+                <div>✓ Eco-Friendly</div>
+                <div>✓ Guaranteed</div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="{% static 'images/hero-cleaning.png' %}" alt="Professional Cleaning Services Sydney">
+            <div class="floating-card card-one">
+                <h3>5+</h3><p>Years Experience</p>
+            </div>
+            <div class="floating-card card-two">
+                <h3>500+</h3><p>Projects Completed</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST SECTION -->
+<section class="trust-section">
+    <div class="container">
+        <div class="trust-grid">
+            <div class="trust-card">
+                <h3 class="stat-number">500+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="trust-card">
+                <h3 class="stat-number">5+</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="trust-card">
+                <h3 class="stat-number">100%</h3>
+                <p>Satisfaction</p>
+            </div>
+            <div class="trust-card">
+                <h3 class="stat-number">24/7</h3>
+                <p>Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container about-wrapper">
+        
+        <!-- Image Column -->
+        <div class="about-image">
+            <img src="{% static 'images/about-story.jpg' %}" alt="Professional Cleaning Team">
+        </div>
+
+        <!-- Content Column -->
+        <div class="about-content">
+            <span class="section-badge">About Us</span>
+            <h2>A Decade of Spotless Excellence</h2>
+            
+            <p>Founded over a decade ago, Cleaning Co started with a simple mission: to provide exceptional cleaning services that allow our customers to focus on what matters most. What began as a small local business has grown into one of Sydney's most trusted names, serving thousands of satisfied clients.</p>
+
+            <ul class="about-list">
+                <li>✓ Fully Insured Team</li>
+                <li>✓ Professional Grade Equipment</li>
+                <li>✓ Competitive, Affordable Pricing</li>
+                <li>✓ 100% Quality Satisfaction</li>
+                <li>✓ Friendly, Local Support</li>
+            </ul>
+
+            <a href="#contact" class="btn-primary">Learn More About Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Our Solutions</span>
+            <h2>Premium Cleaning Services</h2>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="card-accent"></div>
+                <div class="icon">🍂</div>
+                <h3>Gutter Cleaning</h3>
+                <p>Prevent water damage with professional debris removal and drainage clearing.</p>
+                <ul>
+                    <li>Debris removal</li>
+                    <li>Downpipe clearing</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Book Now</a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="card-accent"></div>
+                <div class="icon">🏢</div>
+                <h3>Strata Cleaning</h3>
+                <p>Maintain pristine common areas with our consistent, scheduled strata maintenance.</p>
+                <ul>
+                    <li>Lobby & Hallways</li>
+                    <li>Car park upkeep</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Book Now</a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="card-accent"></div>
+                <div class="icon">🔑</div>
+                <h3>End of Lease</h3>
+                <p>Ensure your bond return with our detailed, landlord-approved deep clean.</p>
+                <ul>
+                    <li>Interior deep clean</li>
+                    <li>Oven & appliances</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Book Now</a>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="card-accent"></div>
+                <div class="icon">💧</div>
+                <h3>High Pressure</h3>
+                <p>Restore outdoor surfaces by removing stubborn grime, mould, and stains.</p>
+                <ul>
+                    <li>Driveway & Patio</li>
+                    <li>Deck & fence</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Book Now</a>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="card-accent"></div>
+                <div class="icon">🪟</div>
+                <h3>Window Cleaning</h3>
+                <p>Crystal clear windows using eco-friendly solutions for a streak-free shine.</p>
+                <ul>
+                    <li>Interior & Exterior</li>
+                    <li>Streak-free finish</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Book Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="trust-strip">
+    <div class="container">
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="icon-circle">🛡️</div>
+                <span>Fully Insured & Bonded</span>
+            </div>
+            <div class="trust-card">
+                <div class="icon-circle">✅</div>
+                <span>Licensed Professionals</span>
+            </div>
+            <div class="trust-card">
+                <div class="icon-circle">⭐</div>
+                <span>5-Star Rated Service</span>
+            </div>
+            <div class="trust-card">
+                <div class="icon-circle">💧</div>
+                <span>Eco-Friendly Solutions</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-choose-us">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Why Choose Us</span>
+            <h2>Your Trusted Partner in Clean</h2>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Fully Insured</h3>
+                <p>Rest easy knowing your property is protected by our comprehensive insurance coverage.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Eco-Friendly</h3>
+                <p>We use non-toxic, environmentally safe products that are tough on grime but gentle on the planet.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Reliable Timing</h3>
+                <p>We respect your schedule with punctual arrivals and consistent, high-standard service.</p>
+            </div>
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Satisfaction Guarantee</h3>
+                <p>If you're not happy with the results, we’ll return to make it right. Your satisfaction is our priority.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="process-section">
+    <div class="container process-wrapper">
+        <div class="process-text">
+            <span class="badge" style="background: #EBF3FB; color: var(--primary); padding: 5px 12px; border-radius: 5px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem;">Our Workflow</span>
+            <h2>How We Transform Your Space</h2>
+            <p>Our systematic approach ensures that every corner of your property receives the same high-level attention to detail.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <div>
+                        <h4>Request a Quote</h4>
+                        <p>Fill out our simple form or call us to get an instant, competitive estimate.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <div>
+                        <h4>Professional Assessment</h4>
+                        <p>We arrive on time, equipped with industry-grade tools for your specific needs.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <div>
+                        <h4>Sparkling Results</h4>
+                        <p>We work efficiently to deliver a spotless finish, backed by our quality guarantee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="process-visual">
+            <img src="{% static 'images/before-after.jpg' %}" alt="Cleaning Transformation">
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Our Work</span>
+            <h2>Gallery of Excellence</h2>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- 6 Gallery Items -->
+            <div class="gallery-item"><img src="{% static 'images/gallery1.jpg' %}" alt="Cleaning Work 1"></div>
+            <div class="gallery-item"><img src="{% static 'images/gallery2.jpg' %}" alt="Cleaning Work 2"></div>
+            <div class="gallery-item"><img src="{% static 'images/gallery3.jpg' %}" alt="Cleaning Work 3"></div>
+            <div class="gallery-item"><img src="{% static 'images/gallery4.jpg' %}" alt="Cleaning Work 4"></div>
+            <div class="gallery-item"><img src="{% static 'images/gallery5.jpg' %}" alt="Cleaning Work 5"></div>
+            <div class="gallery-item"><img src="{% static 'images/gallery6.jpg' %}" alt="Cleaning Work 6"></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container cta-wrapper">
+        <div class="cta-text">
+            <h2>Ready for a Spotless Space?</h2>
+            <p>Get a free, no-obligation quote today. Our team is ready to provide you with the professional cleaning service you deserve.</p>
+        </div>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn-secondary-inverted">Get Free Quote</a>
+            <a href="tel:+61 451 183 783" class="btn-white">Call +61 451 183 783</a>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Client Feedback</span>
+            <h2>Trusted by Homeowners & Businesses</h2>
+        </div>
+
+        <div class="testimonial-grid">
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"The team was punctual, professional, and left my windows absolutely spotless. Highly recommended!"</p>
+                <div class="client-info">
+                    <h4>Sarah Jenkins</h4>
+                    <span>Brisbane North</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"After struggling with blocked gutters for years, their cleaning service solved it in one visit. Great value."</p>
+                <div class="client-info">
+                    <h4>Mark T.</h4>
+                    <span>Homeowner</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"We use them for all our strata properties. Consistent, reliable, and always easy to deal with."</p>
+                <div class="client-info">
+                    <h4>Building Manager</h4>
+                    <span>Local Property Group</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="areas-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Coverage</span>
+            <h2>We Proudly Serve Greater Sydney</h2>
+        </div>
+
+        <div class="areas-grid">
+            <!-- Location Item -->
+            <div class="area-card"><span>📍</span> Sydney CBD</div>
+            <div class="area-card"><span>📍</span> Bondi Beach</div>
+            <div class="area-card"><span>📍</span> Manly</div>
+            <div class="area-card"><span>📍</span> Parramatta</div>
+            <div class="area-card"><span>📍</span> North Sydney</div>
+            <div class="area-card"><span>📍</span> Eastern Suburbs</div>
+            <div class="area-card"><span>📍</span> Inner West</div>
+            <div class="area-card"><span>📍</span> Northern Beaches</div>
+            <div class="area-card"><span>📍</span> Hills District</div>
+            <div class="area-card"><span>📍</span> Western Sydney</div>
+        </div>
+
+        <div class="area-footer">
+            <p>Don't see your area? <strong><a href="#contact">Contact us</a></strong> to check your location.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+    <div class="container contact-wrapper">
+        <!-- Form Section -->
+        <div class="contact-form-box">
+            <h2>Send us a Message</h2>
+            <form action="#" method="POST">
+                <input type="text" placeholder="Name *" required>
+                <input type="email" placeholder="Email *" required>
+                <input type="tel" placeholder="Phone *" required>
+                
+                <select required>
+                    <option value="">Select a service *</option>
+                    <option>Strata Cleaning</option>
+                    <option>Gutter Cleaning</option>
+                    <option>End of Lease Cleaning</option>
+                    <option>High-Pressure Cleaning</option>
+                    <option>Window Cleaning</option>
+                </select>
+                
+                <textarea rows="4" placeholder="Message *" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Info Section -->
+        <div class="contact-info-box">
+            <h2>Get in Touch</h2>
+            <div class="info-item">
+                <span>📞</span>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+61 405 260 947</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>✉</span>
+                <div>
+                    <h4>Email</h4>
+                    <p>sydneyCleaning@tisacleaning.com.au</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>📍</span>
+                <div>
+                    <h4>Address</h4>
+                    <p>Sydney, NSW, Australia</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>🕒</span>
+                <div>
+                    <h4>Business Hours</h4>
+                    <p>Available 24/7</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

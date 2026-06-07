@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>{% block title %}Cleaning Co | Professional Cleaning Services Sydney{% endblock %}</title>
+
+    <meta name="description"
+        content="Professional cleaning services in Sydney. Strata Cleaning, Gutter Cleaning, End of Lease Cleaning, Window Cleaning and High Pressure Cleaning.">
+
+    <meta name="keywords"
+        content="Cleaning Sydney, Strata Cleaning Sydney, Gutter Cleaning Sydney, End of Lease Cleaning Sydney, Window Cleaning Sydney">
+
+    <meta name="author" content="Cleaning Co">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Cleaning Co Sydney">
+    <meta property="og:description" content="Professional Cleaning Services in Sydney">
+    <meta property="og:type" content="website">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+        <div class="container topbar-wrapper">
+
+            <div class="top-item">
+                📞 +61 451 183 783 | +61 405 260 947
+            </div>
+
+            <div class="top-item">
+                ✉ sydneyCleaning@cleaningco.com.au
+            </div>
+
+            <div class="top-item">
+                📍 Sydney, NSW, Australia
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <header class="header">
+
+        <div class="container navbar">
+
+            <!-- Logo -->
+
+            <a href="{% url 'index' %}" class="logo">
+
+                <img src="{% static 'images/logo.png' %}" alt="Cleaning Co Logo">
+            </a>
+
+            <!-- Desktop Menu -->
+
+            <nav class="nav-menu">
+
+                <ul>
+
+                    <li>
+                        <a href="{% url 'index' %}">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+
+                    <li class="dropdown">
+
+                        <a href="#">
+                            Services
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a href="#">Strata Cleaning</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Gutter Cleaning</a>
+                            </li>
+
+                            <li>
+                                <a href="#">End Of Lease Cleaning</a>
+                            </li>
+
+                            <li>
+                                <a href="#">High Pressure Cleaning</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Window Cleaning</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- CTA -->
+
+            <a href="#contact" class="quote-btn">
+                Get Free Quote
+            </a>
+
+            <!-- Hamburger -->
+
+            <div class="hamburger">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <!-- Mobile Menu -->
+
+        <div class="mobile-menu">
+
+            <ul>
+
+                <li>
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'about' %}t">About</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#gallery">Gallery</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+    <!-- PAGE CONTENT -->
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>Cleaning Co</h3>
+
+                    <p>
+                        Professional cleaning services in Sydney.
+                        Your trusted partner for all cleaning needs.
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <h4>Quick Links</h4>
+
+                    <ul>
+
+                        <li><a href="{% url 'index' %}">Home</a></li>
+
+                        <li><a href="#services">Services</a></li>
+
+                        <li><a href="{% url 'about' %}">About</a></li>
+
+                        <li><a href="#gallery">Gallery</a></li>
+
+                        <li><a href="#contact">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h4>Services</h4>
+
+                    <ul>
+
+                        <li>Strata Cleaning</li>
+
+                        <li>Gutter Cleaning</li>
+
+                        <li>End Of Lease Cleaning</li>
+
+                        <li>High Pressure Cleaning</li>
+
+                        <li>Window Cleaning</li>
+
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h4>Contact</h4>
+
+                    <p>
+                        +61 451 183 783
+                    </p>
+
+                    <p>
+                        +61 405 260 947
+                    </p>
+
+                    <p>
+                        sydneyCleaning@cleaningco.com.au
+                    </p>
+
+                    <p>
+                        Sydney, NSW, Australia
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Cleaning Co. All Rights Reserved.
+                </p>
+
+                <p class="developer-credit">
+                    Designed & Developed by <strong>Quantum Core Software</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>
