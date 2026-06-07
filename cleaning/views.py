@@ -6,3 +6,6 @@ def index(request):
     
 def about(request):
     return render(request,"cleaning/about.html")
+    
+def service(request):
+    return render(request,"cleaning/service.html")
