@@ -17,22 +17,26 @@
         content="Cleaning Sydney, Strata Cleaning Sydney, Gutter Cleaning Sydney, End of Lease Cleaning Sydney, Window Cleaning Sydney">
 
     <meta name="author" content="Cleaning Co">
-
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="Cleaning Co Sydney">
     <meta property="og:description" content="Professional Cleaning Services in Sydney">
     <meta property="og:type" content="website">
 
-    <!-- Google Font -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -43,159 +47,102 @@
 
 <body>
 
-    <!-- TOP BAR -->
+<!-- =========================
+     TOP BAR
+========================= -->
 
-    <div class="topbar">
+<div class="topbar">
 
-        <div class="container topbar-wrapper">
+    <div class="container topbar-wrapper">
 
-            <div class="top-item">
-                📞 +61 451 183 783 | +61 405 260 947
-            </div>
+        <div class="top-item">
+            📞 +61 451 183 783 | +61 405 260 947
+        </div>
 
-            <div class="top-item">
-                ✉ sydneyCleaning@cleaningco.com.au
-            </div>
+        <div class="top-item">
+            ✉ sydneyCleaning@cleaningco.com.au
+        </div>
 
-            <div class="top-item">
-                📍 Sydney, NSW, Australia
-            </div>
-
+        <div class="top-item">
+            📍 Sydney, NSW, Australia
         </div>
 
     </div>
 
-    <!-- NAVBAR -->
+</div>
 
-    <header class="header">
+<!-- =========================
+     NAVBAR
+========================= -->
 
-        <div class="container navbar">
+<header class="header">
 
-            <!-- Logo -->
+    <div class="container navbar">
 
-            <a href="{% url 'index' %}" class="logo">
+        <!-- Logo -->
+        <a href="{% url 'index' %}" class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Cleaning Co Logo">
+        </a>
 
-                <img src="{% static 'images/logo.png' %}" alt="Cleaning Co Logo">
-            </a>
-
-            <!-- Desktop Menu -->
-
-            <nav class="nav-menu">
-
-                <ul>
-
-                    <li>
-                        <a href="{% url 'index' %}">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'about' %}">About</a>
-                    </li>
-
-                    <li class="dropdown">
-
-                        <a href="{% url 'service' %}">
-                            Services
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="#">Strata Cleaning</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Gutter Cleaning</a>
-                            </li>
-
-                            <li>
-                                <a href="#">End Of Lease Cleaning</a>
-                            </li>
-
-                            <li>
-                                <a href="#">High Pressure Cleaning</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Window Cleaning</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-                        <a href="{% url 'gallery' %}">Gallery</a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'contact' %}">Contact</a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <!-- CTA -->
-
-            <a href="#contact" class="quote-btn">
-                Get Free Quote
-            </a>
-
-            <!-- Hamburger -->
-
-            <div class="hamburger">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-        </div>
-
-        <!-- Mobile Menu -->
-
-        <div class="mobile-menu">
+        <!-- Desktop Menu -->
+        <nav class="nav-menu">
 
             <ul>
 
-                <li>
-                    <a href="{% url 'index' %}">Home</a>
+                <li><a href="{% url 'index' %}">Home</a></li>
+
+                <li><a href="{% url 'about' %}">About</a></li>
+
+                <li class="dropdown">
+
+                    <a href="{% url 'service' %}">
+                        Services
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Strata Cleaning</a></li>
+                        <li><a href="#">Gutter Cleaning</a></li>
+                        <li><a href="#">End Of Lease Cleaning</a></li>
+                        <li><a href="#">High Pressure Cleaning</a></li>
+                        <li><a href="#">Window Cleaning</a></li>
+                    </ul>
+
                 </li>
 
-                <li>
-                    <a href="{% url 'about' %}t">About</a>
-                </li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
 
-                <li>
-                    <a href="{% url 'service' %}">Services</a>
-                </li>
-
-                <li>
-                    <a href="{% url 'gallery' %}">Gallery</a>
-                </li>
-
-                <li>
-                    <a href="{% url 'contact' %}">Contact</a>
-                </li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
 
             </ul>
 
+        </nav>
+
+        <!-- CTA -->
+        <a href="#contact" class="quote-btn">
+            Get Free Quote
+        </a>
+
+        <!-- Hamburger -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
-    </header>
+    </div>
 
-    <!-- PAGE CONTENT -->
+</header>
 
-    {% block content %}
-    {% endblock %}
+<!-- =========================
+     PAGE CONTENT
+========================= -->
 
-    <!-- FOOTER -->
+{% block content %}{% endblock %}
 
-    <!-- Font Awesome -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer class="footer">
 
@@ -203,7 +150,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <div class="footer-grid">
 
-            <!-- Company Info -->
+            <!-- Company -->
             <div class="footer-company">
 
                 <h3>Cleaning Co</h3>
@@ -213,11 +160,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                     Your trusted partner for residential,
                     commercial and strata cleaning solutions.
                 </p>
-
-                <!--<div class="footer-badge">-->
-                <!--    <i class="fas fa-check-circle"></i>-->
-                <!--    Fully Insured & Professional Cleaning Services-->
-                <!--</div>-->
 
                 <div class="footer-social">
 
@@ -243,17 +185,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 <h4>Quick Links</h4>
 
                 <ul>
-
                     <li><a href="{% url 'index' %}">Home</a></li>
-
                     <li><a href="{% url 'service' %}">Services</a></li>
-
                     <li><a href="{% url 'about' %}">About Us</a></li>
-
                     <li><a href="{% url 'gallery' %}">Gallery</a></li>
-
                     <li><a href="{% url 'contact' %}">Contact</a></li>
-
                 </ul>
 
             </div>
@@ -264,17 +200,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 <h4>Our Services</h4>
 
                 <ul>
-
                     <li>Strata Cleaning</li>
-
                     <li>Gutter Cleaning</li>
-
                     <li>End Of Lease Cleaning</li>
-
                     <li>High Pressure Cleaning</li>
-
                     <li>Window Cleaning</li>
-
                 </ul>
 
             </div>
@@ -286,16 +216,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                 <p>
                     <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+61451183783">
-                        +61 451 183 783
-                    </a>
+                    <a href="tel:+61451183783">+61 451 183 783</a>
                 </p>
 
                 <p>
                     <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+61405260947">
-                        +61 405 260 947
-                    </a>
+                    <a href="tel:+61405260947">+61 405 260 947</a>
                 </p>
 
                 <p>
@@ -316,9 +242,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <div class="footer-bottom">
 
-            <p>
-                © 2026 Cleaning Co. All Rights Reserved.
-            </p>
+            <p>© 2026 Cleaning Co. All Rights Reserved.</p>
 
             <p class="developer-credit">
                 Designed & Developed by
@@ -335,50 +259,45 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </footer>
 
-<!-- SOCIAL SIDEBAR -->
+<!-- =========================
+     SOCIAL SIDEBAR
+========================= -->
+
 <nav class="spatial-sidebar initial-hide" id="socialSidebar">
 
-    <a href="https://facebook.com"
-       target="_blank"
-       class="spatial-item fb">
-
+    <a href="https://facebook.com" class="spatial-item fb" target="_blank">
         <i class="fab fa-facebook-f"></i>
         <span class="spatial-text">Facebook</span>
-
     </a>
 
-    <a href="https://wa.me/61405260947"
-       target="_blank"
-       class="spatial-item wa">
-
+    <a href="https://wa.me/61405260947" class="spatial-item wa" target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span class="spatial-text">WhatsApp</span>
-
     </a>
 
-    <a href="https://linkedin.com"
-       target="_blank"
-       class="spatial-item li">
-
+    <a href="https://linkedin.com" class="spatial-item li" target="_blank">
         <i class="fab fa-linkedin-in"></i>
         <span class="spatial-text">LinkedIn</span>
-
     </a>
 
 </nav>
 
-<!-- LIVE CHAT BUTTON -->
+<!-- =========================
+     LIVE CHAT
+========================= -->
+
 <div class="chat-spatial-trigger initial-hide"
      id="chatWrapper"
      onclick="toggleChat()">
 
     <span class="live-dot"></span>
-
-    <span class="chat-tooltip">
-        Live Chat
-    </span>
+    <span class="chat-tooltip">Live Chat</span>
 
 </div>
+
+<!-- =========================
+     TAWK SCRIPT
+========================= -->
 
 <script type="text/javascript">
 
@@ -391,51 +310,30 @@ var Tawk_API = Tawk_API || {},
         s0 = document.getElementsByTagName("script")[0];
 
     s1.async = true;
-
-    s1.src =
-    'https://embed.tawk.to/6a265617be9ae91c2b2defb3/1jqis0jq9';
-
+    s1.src = 'https://embed.tawk.to/6a265617be9ae91c2b2defb3/1jqis0jq9';
     s1.charset = 'UTF-8';
-
     s1.setAttribute('crossorigin','*');
 
     s0.parentNode.insertBefore(s1,s0);
 
 })();
 
-/* OPEN CHAT */
-
 function toggleChat(){
-
     if(typeof Tawk_API !== 'undefined'){
-
         Tawk_API.maximize();
-
     }
-
 }
 
-/* HIDE DEFAULT TAWK BUTTON */
-
 Tawk_API.onLoad = function(){
-
     Tawk_API.hideWidget();
-
 };
-
-/* REVEAL ANIMATION */
 
 window.addEventListener('load', function(){
 
     setTimeout(function(){
 
-        document
-        .getElementById('socialSidebar')
-        .classList.add('reveal');
-
-        document
-        .getElementById('chatWrapper')
-        .classList.add('reveal');
+        document.getElementById('socialSidebar').classList.add('reveal');
+        document.getElementById('chatWrapper').classList.add('reveal');
 
     },700);
 
@@ -443,12 +341,11 @@ window.addEventListener('load', function(){
 
 </script>
 
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
 
-    {% block extra_js %}{% endblock %}
+{% block extra_js %}{% endblock %}
 
 </body>
-
 </html>
