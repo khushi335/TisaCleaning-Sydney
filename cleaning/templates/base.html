@@ -31,6 +31,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     <!-- CSS -->
@@ -192,102 +193,255 @@
 
     <!-- FOOTER -->
 
-    <footer class="footer">
+    <!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <div class="container">
+<footer class="footer">
 
-            <div class="footer-grid">
+    <div class="container">
 
-                <div>
+        <div class="footer-grid">
 
-                    <h3>Cleaning Co</h3>
+            <!-- Company Info -->
+            <div class="footer-company">
 
-                    <p>
-                        Professional cleaning services in Sydney.
-                        Your trusted partner for all cleaning needs.
-                    </p>
+                <h3>Cleaning Co</h3>
 
-                </div>
+                <p>
+                    Professional cleaning services in Sydney.
+                    Your trusted partner for residential,
+                    commercial and strata cleaning solutions.
+                </p>
 
-                <div>
+                <!--<div class="footer-badge">-->
+                <!--    <i class="fas fa-check-circle"></i>-->
+                <!--    Fully Insured & Professional Cleaning Services-->
+                <!--</div>-->
 
-                    <h4>Quick Links</h4>
+                <div class="footer-social">
 
-                    <ul>
+                    <a href="https://facebook.com" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
 
-                        <li><a href="{% url 'index' %}">Home</a></li>
+                    <a href="https://wa.me/61405260947" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
 
-                        <li><a href="{% url 'service' %}">Services</a></li>
-
-                        <li><a href="{% url 'about' %}">About</a></li>
-
-                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
-
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
-
-                    </ul>
-
-                </div>
-
-                <div>
-
-                    <h4>Services</h4>
-
-                    <ul>
-
-                        <li>Strata Cleaning</li>
-
-                        <li>Gutter Cleaning</li>
-
-                        <li>End Of Lease Cleaning</li>
-
-                        <li>High Pressure Cleaning</li>
-
-                        <li>Window Cleaning</li>
-
-                    </ul>
-
-                </div>
-
-                <div>
-
-                    <h4>Contact</h4>
-
-                    <p>
-                        +61 451 183 783
-                    </p>
-
-                    <p>
-                        +61 405 260 947
-                    </p>
-
-                    <p>
-                        sydneyCleaning@cleaningco.com.au
-                    </p>
-
-                    <p>
-                        Sydney, NSW, Australia
-                    </p>
+                    <a href="https://linkedin.com" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
 
                 </div>
 
             </div>
 
-            <div class="footer-bottom">
+            <!-- Quick Links -->
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <ul>
+
+                    <li><a href="{% url 'index' %}">Home</a></li>
+
+                    <li><a href="{% url 'service' %}">Services</a></li>
+
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+
+                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Services -->
+            <div>
+
+                <h4>Our Services</h4>
+
+                <ul>
+
+                    <li>Strata Cleaning</li>
+
+                    <li>Gutter Cleaning</li>
+
+                    <li>End Of Lease Cleaning</li>
+
+                    <li>High Pressure Cleaning</li>
+
+                    <li>Window Cleaning</li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-contact">
+
+                <h4>Contact Us</h4>
 
                 <p>
-                    © 2026 Cleaning Co. All Rights Reserved.
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+61451183783">
+                        +61 451 183 783
+                    </a>
                 </p>
 
-                <p class="developer-credit">
-                    Designed & Developed by <strong>Quantum Core Software</strong>
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+61405260947">
+                        +61 405 260 947
+                    </a>
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:sydneyCleaning@cleaningco.com.au">
+                        sydneyCleaning@cleaningco.com.au
+                    </a>
+                </p>
+
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Sydney, NSW, Australia
                 </p>
 
             </div>
 
         </div>
 
-    </footer>
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Cleaning Co. All Rights Reserved.
+            </p>
+
+            <p class="developer-credit">
+                Designed & Developed by
+                <a href="https://quantumcoresoftware.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Quantum Core Software
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- SOCIAL SIDEBAR -->
+<nav class="spatial-sidebar initial-hide" id="socialSidebar">
+
+    <a href="https://facebook.com"
+       target="_blank"
+       class="spatial-item fb">
+
+        <i class="fab fa-facebook-f"></i>
+        <span class="spatial-text">Facebook</span>
+
+    </a>
+
+    <a href="https://wa.me/61405260947"
+       target="_blank"
+       class="spatial-item wa">
+
+        <i class="fab fa-whatsapp"></i>
+        <span class="spatial-text">WhatsApp</span>
+
+    </a>
+
+    <a href="https://linkedin.com"
+       target="_blank"
+       class="spatial-item li">
+
+        <i class="fab fa-linkedin-in"></i>
+        <span class="spatial-text">LinkedIn</span>
+
+    </a>
+
+</nav>
+
+<!-- LIVE CHAT BUTTON -->
+<div class="chat-spatial-trigger initial-hide"
+     id="chatWrapper"
+     onclick="toggleChat()">
+
+    <span class="live-dot"></span>
+
+    <span class="chat-tooltip">
+        Live Chat
+    </span>
+
+</div>
+
+<script type="text/javascript">
+
+var Tawk_API = Tawk_API || {},
+    Tawk_LoadStart = new Date();
+
+(function(){
+
+    var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+
+    s1.async = true;
+
+    s1.src =
+    'https://embed.tawk.to/6a265617be9ae91c2b2defb3/1jqis0jq9';
+
+    s1.charset = 'UTF-8';
+
+    s1.setAttribute('crossorigin','*');
+
+    s0.parentNode.insertBefore(s1,s0);
+
+})();
+
+/* OPEN CHAT */
+
+function toggleChat(){
+
+    if(typeof Tawk_API !== 'undefined'){
+
+        Tawk_API.maximize();
+
+    }
+
+}
+
+/* HIDE DEFAULT TAWK BUTTON */
+
+Tawk_API.onLoad = function(){
+
+    Tawk_API.hideWidget();
+
+};
+
+/* REVEAL ANIMATION */
+
+window.addEventListener('load', function(){
+
+    setTimeout(function(){
+
+        document
+        .getElementById('socialSidebar')
+        .classList.add('reveal');
+
+        document
+        .getElementById('chatWrapper')
+        .classList.add('reveal');
+
+    },700);
+
+});
+
+</script>
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
