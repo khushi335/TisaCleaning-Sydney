@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+High Pressure Cleaning | Professional Cleaning Services Sydney
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.pressure-page{
+    overflow-x:hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.pressure-hero{
+    background: linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:#fff;
+    padding:120px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.pressure-hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,.05);
+    border-radius:50%;
+    top:-200px;
+    right:-150px;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.pressure-hero h1{
+    font-size:3.5rem;
+    margin-bottom:15px;
+}
+
+.pressure-hero p{
+    max-width:850px;
+    margin:auto;
+    color:#dbeafe;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.pressure-section{
+    padding:80px 20px;
+    background:#f8fafc;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.pressure-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.pressure-image img{
+    width:100%;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+}
+
+/* CONTENT TEXT */
+
+.pressure-content h2{
+    font-size:2.8rem;
+    margin-bottom:15px;
+    color:#111827;
+}
+
+.pressure-content p{
+    color:#64748b;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.feature{
+    background:#fff;
+    padding:15px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    font-weight:600;
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-5px);
+    background:#e0f2fe;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   INFO CARDS
+========================= */
+
+.info-section{
+    padding:80px 20px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.info-card{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.info-card h3{
+    margin-bottom:10px;
+    color:#111827;
+}
+
+.info-card p{
+    color:#64748b;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:80px 20px;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    text-align:center;
+    color:#fff;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+    color:#dbeafe;
+    margin-bottom:25px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.pressure-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.info-grid{
+    grid-template-columns:1fr;
+}
+
+.pressure-hero h1{
+    font-size:2.3rem;
+}
+
+.cta h2{
+    font-size:2rem;
+}
+
+}
+
+</style>
+
+<div class="pressure-page">
+
+<!-- HERO -->
+<section class="pressure-hero">
+    <span class="hero-badge">⚡ Professional Cleaning Service</span>
+    <h1>High Pressure Cleaning</h1>
+    <p>
+        Restore and refresh your outdoor surfaces with powerful,
+        safe and professional high pressure cleaning services.
+    </p>
+</section>
+
+<!-- MAIN -->
+<section class="pressure-section">
+    <div class="container">
+
+        <div class="pressure-grid">
+
+            <div class="pressure-image">
+                <img src="{% static 'images/pressure-cleaning.jpg' %}" alt="High Pressure Cleaning">
+            </div>
+
+            <div class="pressure-content">
+
+                <h2>Deep Outdoor Surface Cleaning</h2>
+
+                <p>
+                    We remove dirt, mould, stains and grime from all outdoor areas
+                    using advanced pressure cleaning equipment.
+                </p>
+
+                <div class="features">
+                    <div class="feature">Driveways</div>
+                    <div class="feature">Patios</div>
+                    <div class="feature">Decks</div>
+                    <div class="feature">Walls</div>
+                    <div class="feature">Pavements</div>
+                    <div class="feature">Exterior Surfaces</div>
+                </div>
+
+                <a href="{% url 'contact' %}" class="btn">Book This Service</a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- INFO -->
+<section class="info-section">
+    <div class="container">
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <h3>Powerful Cleaning</h3>
+                <p>Removes deep dirt and stains effectively.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Safe Methods</h3>
+                <p>No damage to surfaces when done professionally.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Fast Results</h3>
+                <p>Instant transformation of outdoor areas.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Make Your Property Shine</h2>
+    <p>Get professional pressure cleaning for driveways, patios and more.</p>
+    <a href="{% url 'contact' %}" class="btn" style="background:#fff;color:#2563eb;">
+        Get Free Quote
+    </a>
+</section>
+
+</div>
+
+{% endblock %}
