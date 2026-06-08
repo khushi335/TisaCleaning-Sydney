@@ -1,9 +1,8 @@
 /* ===================================
-   GLOBAL STYLES
+   GLOBAL STYLES (SAFE + NO OVERFLOW)
 =================================== */
 
 :root{
-
     --primary:#0A66C2;
     --primary-dark:#084C94;
 
@@ -18,73 +17,93 @@
 
     --border:#E5E7EB;
 
-    --shadow:
-    0 10px 30px rgba(0,0,0,.08);
+    --shadow:0 10px 30px rgba(0,0,0,.08);
 
     --radius:16px;
-
 }
 
+/* RESET */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* CRITICAL FIX (PREVENT ANY OVERFLOW) */
+html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+/* smooth scroll */
 html{
     scroll-behavior:smooth;
 }
 
+/* BODY SAFETY */
 body{
-
     font-family:'Manrope',sans-serif;
-
     color:var(--text);
-
     background:var(--white);
-
-    overflow-x:hidden;
-
     line-height:1.7;
 
+    overflow-x:hidden;
 }
 
+/* MEDIA SAFETY */
 img{
     max-width:100%;
+    height:auto;
     display:block;
 }
 
+/* LINKS */
 a{
     text-decoration:none;
 }
 
+/* LISTS */
 ul{
     list-style:none;
 }
 
+/* ===================================
+   CONTAINER (RESPONSIVE SAFE)
+=================================== */
+
 .container{
-
-    width:90%;
-
+    width:100%;
     max-width:1280px;
+    margin-inline:auto;
 
-    margin:auto;
-
+    padding-inline:20px; /* 🔥 IMPORTANT FIX FOR MOBILE */
 }
 
 /* ===================================
-   GLOBAL RESET
+   EXTRA SAFETY FOR ALL SECTIONS
 =================================== */
 
-*{
-    margin:0;
-    padding:0;
+section, header, footer, div{
+    max-width:100%;
+}
+
+/* PREVENT LONG TEXT OVERFLOW */
+p, h1, h2, h3, h4, h5, h6{
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+}
+
+/* FIX FLEX OVERFLOW ISSUES */
+.flex, .navbar, .topbar-wrapper{
+    min-width:0;
+}
+
+/* SAFE BOX MODEL FOR ALL ELEMENTS */
+*, *::before, *::after{
     box-sizing:border-box;
 }
 
-body{
-    font-family:'Manrope', sans-serif;
-}
 
 /* ===================================
    TOP BAR (CLEAN + RESPONSIVE)
