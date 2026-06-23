@@ -1,362 +1,235 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
-    <title>{% block title %}Cleaning Co | Professional Cleaning Services Sydney{% endblock %}</title>
-
-    <meta name="description"
-        content="Professional cleaning services in Sydney. Strata Cleaning, Gutter Cleaning, End of Lease Cleaning, Window Cleaning and High Pressure Cleaning.">
-
-    <meta name="keywords"
-        content="Cleaning Sydney, Strata Cleaning Sydney, Gutter Cleaning Sydney, End of Lease Cleaning Sydney, Window Cleaning Sydney">
-
-    <meta name="author" content="Cleaning Co">
+    <!-- Brand-Specific SEO Targeting Alignment -->
+    <title>{% block title %}Tisa Cleaning | Professional Cleaning Services Sydney{% endblock %}</title>
+    <meta name="description" content="Premium professional commercial and residential cleaning services across Sydney by Tisa Cleaning. Specializing in high-end Strata, Gutter, End of Lease, Window, and Commercial Pressure Cleaning.">
+    <meta name="keywords" content="Tisa Cleaning, Cleaning Sydney, Strata Cleaning Sydney, Gutter Cleaning Sydney, End of Lease Cleaning Sydney, Window Cleaning Sydney, Commercial Cleaning Sydney">
+    <meta name="author" content="Tisa Cleaning">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="Cleaning Co Sydney">
-    <meta property="og:description" content="Professional Cleaning Services in Sydney">
+    <!-- Open Graph Framework Data Alignment -->
+    <meta property="og:title" content="Tisa Cleaning Sydney | Premium Commercial & Residential Solutions">
+    <meta property="og:description" content="Experience professional cleanliness benchmarks across Sydney with Tisa Cleaning. Book your flawless free quote today.">
     <meta property="og:type" content="website">
 
-    <!-- Fonts -->
+    <!-- Structural Presentation Assets Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Swiper -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-    <!-- CSS -->
+    <!-- Primary Stylesheet Insertion Line -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     {% block extra_css %}{% endblock %}
-
 </head>
-
 <body>
 
-<!-- =========================
-     TOP BAR
-========================= -->
-
-<div class="topbar">
-
-    <div class="container topbar-wrapper">
-
-        <div class="top-item">
-            📞 +61 451 183 783 | +61 405 260 947
+    <!-- ==========================================
+         TOP CONTACT STRIP (Responsive Shielded Layer)
+         ========================================== -->
+    <div class="topbar">
+        <div class="container topbar-wrapper">
+            <div class="topbar-left">
+                <span class="topbar-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+61451183783">+61 451 183 783</a>
+                </span>
+                <span class="topbar-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+61405260947">+61 405 260 947</a>
+                </span>
+            </div>
+            <div class="topbar-right">
+                <span class="topbar-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:sydneyCleaning@cleaningco.com.au">sydneyCleaning@cleaningco.com.au</a>
+                </span>
+                <span class="topbar-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sydney, NSW, Australia</span>
+                </span>
+            </div>
         </div>
-
-        <div class="top-item">
-            ✉ sydneyCleaning@cleaningco.com.au
-        </div>
-
-        <div class="top-item">
-            📍 Sydney, NSW, Australia
-        </div>
-
     </div>
 
-</div>
+    <!-- ==========================================
+         MAIN STICKY COMPONENT NAVIGATION BAR
+         ========================================== -->
+    <header class="header">
+        <div class="container navbar">
+            
+            <a href="{% url 'index' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Tisa Cleaning Premium Logo">
+            </a>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+            <!-- Desktop View Navigation Array Links -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li class="dropdown">
+                        <a href="{% url 'service' %}" onclick="return false;">
+                            Services <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'strata_cleaning' %}">Strata Cleaning</a></li>
+                            <li><a href="{% url 'gutter_cleaning' %}">Gutter Cleaning</a></li>
+                            <li><a href="{% url 'end_of_lease_cleaning' %}">End Of Lease Cleaning</a></li>
+                            <li><a href="{% url 'high_pressure_cleaning' %}">High Pressure Cleaning</a></li>
+                            <li><a href="{% url 'window_cleaning' %}">Window Cleaning</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </nav>
 
-<header class="header">
+            <a href="#contact" class="btn-primary">Get Free Quote</a>
 
-    <div class="container navbar">
+            <!-- Correctly Positioned Independent Mobile Hamburger Trigger Toggle -->
+            <button class="hamburger" id="hamburgerTrigger" aria-label="Toggle Adaptive Navigation Options Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <!-- Logo -->
-        <a href="{% url 'index' %}" class="logo">
-            <img src="{% static 'images/logo.png' %}" alt="Cleaning Co Logo">
-        </a>
+            <!-- Backdrop layer for off-canvas navigation dismiss tracking -->
+            <div class="menu-backdrop" id="menuBackdropLayer"></div>
 
-        <!-- Desktop Menu -->
-        <nav class="nav-menu">
+            <!-- Fully Functional Adaptive Mobile Overlaid Drawer Menu -->
+            <div class="mobile-menu" id="mobileNavigationDrawer">
+                <div class="mobile-nav-list">
+                    <div class="mobile-nav-item">
+                        <a href="{% url 'index' %}" class="mobile-nav-link">Home</a>
+                    </div>
+                    <div class="mobile-nav-item">
+                        <a href="{% url 'about' %}" class="mobile-nav-link">About</a>
+                    </div>
+                    <div class="mobile-nav-item">
+                        <button class="mobile-nav-link mobile-dropdown-btn" id="mobileSubmenuToggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="mobile-submenu-list" id="mobileSubmenuContent">
+                            <li><a href="{% url 'strata_cleaning' %}">Strata Cleaning</a></li>
+                            <li><a href="{% url 'gutter_cleaning' %}">Gutter Cleaning</a></li>
+                            <li><a href="{% url 'end_of_lease_cleaning' %}">End Of Lease Cleaning</a></li>
+                            <li><a href="{% url 'high_pressure_cleaning' %}">High Pressure Cleaning</a></li>
+                            <li><a href="{% url 'window_cleaning' %}">Window Cleaning</a></li>
+                        </ul>
+                    </div>
+                    <div class="mobile-nav-item">
+                        <a href="{% url 'gallery' %}" class="mobile-nav-link">Gallery</a>
+                    </div>
+                    <div class="mobile-nav-item">
+                        <a href="{% url 'contact' %}" class="mobile-nav-link">Contact</a>
+                    </div>
+                </div>
 
-            <ul>
+                <div class="mobile-menu-footer">
+                    <a href="tel:+61451183783" class="mobile-nav-link" style="font-size:14px; padding:4px;"><i class="fas fa-phone-alt" style="color:var(--primary); margin-right:8px;"></i> Call Tisa Direct</a>
+                    <a href="#contact" class="btn-primary mobile-menu-close-action">Get Free Quote</a>
+                </div>
+            </div>
 
-                <li><a href="{% url 'index' %}">Home</a></li>
+        </div>
+    </header>
 
-                <li><a href="{% url 'about' %}">About</a></li>
+    <!-- ==========================================
+         MAIN CONTENT EXTENSION block MOUNT
+         ========================================== -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-                <li class="dropdown">
+    <!-- ==========================================
+         FOOTER ARCHITECTURE
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div>
+                    <h3>Tisa Cleaning</h3>
+                    <p>Setting pristine benchmarks in commercial and residential sanitation systems across Sydney. Your dependable workspace and premium lifestyle cleaning ally.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/61405260947" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
 
-                    <a href="{% url 'service' %}">
-                        Services
-                        <i class="fas fa-chevron-down dropdown-icon"></i>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'strata_cleaning' %}">Strata Cleaning</a></li>
-                        <li><a href="{% url 'gutter_cleaning' %}">Gutter Cleaning</a></li>
-                        <li><a href="{% url 'end_of_lease_cleaning' %}">End Of Lease Cleaning</a></li>
-                        <li><a href="{% url 'high_pressure_cleaning' %}">High Pressure Cleaning</a></li>
-                        <li><a href="{% url 'window_cleaning' %}">Window Cleaning</a></li>
+                <div>
+                    <h4>Quick Access</h4>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'service' %}">Our Services</a></li>
+                        <li><a href="{% url 'about' %}">About Corporate</a></li>
+                        <li><a href="{% url 'gallery' %}">Project Gallery</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Office</a></li>
                     </ul>
+                </div>
 
-                </li>
+                <div>
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="{% url 'strata_cleaning' %}">Strata Complexes</a></li>
+                        <li><a href="{% url 'gutter_cleaning' %}">Gutter Vac Systems</a></li>
+                        <li><a href="{% url 'end_of_lease_cleaning' %}">End Of Lease Bonds</a></li>
+                        <li><a href="{% url 'high_pressure_cleaning' %}">High Pressure Jetting</a></li>
+                        <li><a href="{% url 'window_cleaning' %}">Pure Water Windowing</a></li>
+                    </ul>
+                </div>
 
-                <li><a href="{% url 'gallery' %}">Gallery</a></li>
-
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-
-            </ul>
-
-        </nav>
-
-        <!-- CTA -->
-        <a href="#contact" class="quote-btn">
-            Get Free Quote
-        </a>
-
-        <!-- Hamburger -->
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        
-            <!-- ✅ FIXED MOBILE MENU (IMPORTANT) -->
-    <div class="mobile-menu">
-        <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'service' %}">Services</a></li>
-            <li><a href="{% url 'gallery' %}">Gallery</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
-    </div>
-
-    </div>
-
-</header>
-
-<!-- =========================
-     PAGE CONTENT
-========================= -->
-
-{% block content %}{% endblock %}
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer">
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-            <!-- Company -->
-            <div class="footer-company">
-
-                <h3>Cleaning Co</h3>
-
-                <p>
-                    Professional cleaning services in Sydney.
-                    Your trusted partner for residential,
-                    commercial and strata cleaning solutions.
-                </p>
-
-                <div class="footer-social">
-
-                    <a href="https://facebook.com" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-
-                    <a href="https://wa.me/61405260947" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-
-                    <a href="https://linkedin.com" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-
+                <div>
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+61451183783">+61 451 183 783</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+61405260947">+61 405 260 947</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:sydneyCleaning@cleaningco.com.au">sydneyCleaning@cleaningco.com.au</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sydney, NSW, Australia</span>
+                    </div>
                 </div>
 
             </div>
 
-            <!-- Quick Links -->
-            <div>
-
-                <h4>Quick Links</h4>
-
-                <ul>
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'service' %}">Services</a></li>
-                    <li><a href="{% url 'about' %}">About Us</a></li>
-                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                </ul>
-
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tisa Cleaning. All Rights Reserved.</p>
+                <p class="developer-credit">
+                    Designed & Engineered by 
+                    <a href="https://quantumcoresoftware.com/" target="_blank" rel="noopener noreferrer">Quantum Core Software</a>
+                </p>
             </div>
-
-            <!-- Services -->
-            <div>
-
-                <h4>Our Services</h4>
-
-                <ul>
-                    <li><a href="{% url 'strata_cleaning' %}">Strata Cleaning</a></li>
-                    <li><a href="{% url 'gutter_cleaning' %}">Gutter Cleaning</a></li>
-                    <li><a href="{% url 'end_of_lease_cleaning' %}">End Of Lease Cleaning</a></li>
-                    <li><a href="{% url 'high_pressure_cleaning' %}">High Pressure Cleaning</a></li>
-                    <li><a href="{% url 'window_cleaning' %}">Window Cleaning</a></li>
-                </ul>
-
-            </div>
-
-            <!-- Contact -->
-            <div class="footer-contact">
-
-                <h4>Contact Us</h4>
-
-                <p>
-                    <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+61451183783">+61 451 183 783</a>
-                </p>
-
-                <p>
-                    <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+61405260947">+61 405 260 947</a>
-                </p>
-
-                <p>
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:sydneyCleaning@cleaningco.com.au">
-                        sydneyCleaning@cleaningco.com.au
-                    </a>
-                </p>
-
-                <p>
-                    <i class="fas fa-map-marker-alt"></i>
-                    Sydney, NSW, Australia
-                </p>
-
-            </div>
-
         </div>
+    </footer>
 
-        <div class="footer-bottom">
+    <!-- Utilities Float Anchor Configurations Layout -->
+    <nav class="spatial-sidebar" id="socialSidebar">
+        <a href="https://facebook.com" class="spatial-item fb" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/61405260947" class="spatial-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com" class="spatial-item ig" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+    </nav>
 
-            <p>© 2026 Cleaning Co. All Rights Reserved.</p>
+    <div class="chat-spatial-trigger" id="chatWrapper" onclick="toggleChat()"></div>
 
-            <p class="developer-credit">
-                Designed & Developed by
-                <a href="https://quantumcoresoftware.com/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Quantum Core Software
-                </a>
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-<!-- =========================
-     SOCIAL SIDEBAR
-========================= -->
-
-<nav class="spatial-sidebar initial-hide" id="socialSidebar">
-
-    <a href="https://facebook.com" class="spatial-item fb" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-        <span class="spatial-text">Facebook</span>
-    </a>
-
-    <a href="https://wa.me/61405260947" class="spatial-item wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span class="spatial-text">WhatsApp</span>
-    </a>
-
-    <a href="https://linkedin.com" class="spatial-item li" target="_blank">
-        <i class="fab fa-linkedin-in"></i>
-        <span class="spatial-text">LinkedIn</span>
-    </a>
-
-</nav>
-
-<!-- =========================
-     LIVE CHAT
-========================= -->
-
-<div class="chat-spatial-trigger initial-hide"
-     id="chatWrapper"
-     onclick="toggleChat()">
-
-    <span class="live-dot"></span>
-    <span class="chat-tooltip">Live Chat</span>
-
-</div>
-
-<!-- =========================
-     TAWK SCRIPT
-========================= -->
-
-<script type="text/javascript">
-
-var Tawk_API = Tawk_API || {},
-    Tawk_LoadStart = new Date();
-
-(function(){
-
-    var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/6a265617be9ae91c2b2defb3/1jqis0jq9';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin','*');
-
-    s0.parentNode.insertBefore(s1,s0);
-
-})();
-
-function toggleChat(){
-    if(typeof Tawk_API !== 'undefined'){
-        Tawk_API.maximize();
-    }
-}
-
-Tawk_API.onLoad = function(){
-    Tawk_API.hideWidget();
-};
-
-window.addEventListener('load', function(){
-
-    setTimeout(function(){
-
-        document.getElementById('socialSidebar').classList.add('reveal');
-        document.getElementById('chatWrapper').classList.add('reveal');
-
-    },700);
-
-});
-
-</script>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="{% static 'js/main.js' %}"></script>
-
-{% block extra_js %}{% endblock %}
-
+    <!-- Script Resource Pipelines -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
