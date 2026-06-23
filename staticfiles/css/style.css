@@ -2257,126 +2257,544 @@ ul {
 
 
 
-.process-section {
-    padding: 100px 0;
-    background: #F3F4F6; /* Soft neutral gray */
+
+/* ==========================================================================
+   PRODUCTION ENGINE - WORKFLOW TIMELINE GRID SYSTEM
+   ========================================================================== */
+.tisa-process-premium-section {
+    position: relative;
+    background-color: var(--white) !important; /* Crisp, clean light background */
+    padding: 110px 0;
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    box-sizing: border-box;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-.process-wrapper {
+/* Ambient Subtle Decorative Background Blur Circles */
+.process-light-glow-1 {
+    position: absolute;
+    top: 5%;
+    left: -5%;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(0, 128, 128, 0.03) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.process-light-glow-2 {
+    position: absolute;
+    bottom: -10%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.process-section-container {
+    max-width: 1240px;
+    width: 92%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* High-End 50/50 Desktop Asymmetric Split Layout Grid */
+.process-split-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 70px;
     align-items: center;
-    background: var(--white);
-    padding: 60px;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
-.process-text h2 {
-    font-size: 2.8rem;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    color: var(--dark);
-}
-
-.steps { margin-top: 40px; }
-.step {
+/* Content Panel Architecture */
+.process-content-column {
     display: flex;
-    gap: 25px;
-    margin-bottom: 35px;
+    flex-direction: column;
 }
-.step-num {
-    font-size: 1.5rem;
+
+.process-pill-badge {
+    display: inline-flex;
+    background: rgba(0, 128, 128, 0.06);
+    color: var(--primary-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 100px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(0, 128, 128, 0.1);
+    width: max-content;
+}
+
+.process-main-heading {
+    font-size: clamp(2.1rem, 3.8vw, 2.8rem);
     font-weight: 900;
-    color: var(--white);
-    background: var(--primary);
-    width: 50px;
-    height: 50px;
+    color: var(--dark);
+    margin: 0 0 16px 0;
+    letter-spacing: -0.6px;
+    line-height: 1.15;
+}
+
+.process-sub-prose {
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin: 0 0 45px 0;
+    max-width: 540px;
+}
+
+/* ==========================================================================
+   TIMELINE MICRO-SYSTEM LAYOUT
+   ========================================================================== */
+.process-steps-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.process-timeline-node {
+    display: flex;
+    gap: 24px;
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Node indicator rail system */
+.node-indicator-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.node-number-stamp {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    border: 2px solid var(--border);
+    color: var(--text-muted);
+    font-weight: 800;
+    font-size: 0.92rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    flex-shrink: 0;
+    transition: var(--transition);
+    z-index: 2;
 }
-.step h4 { font-size: 1.3rem; margin-bottom: 8px; color: var(--dark); }
-.step p { font-size: 1rem; color: var(--text); line-height: 1.5; }
 
-/* Visual Side */
-.process-visual {
-    height: 100%;
-    min-height: 400px;
-    border-radius: 20px;
-    overflow: hidden;
+.node-connecting-line {
+    width: 2px;
+    background-color: var(--border);
+    flex-grow: 1;
+    margin-top: 8px;
+    margin-bottom: -8px;
+    min-height: 50px;
+    transition: var(--transition);
+}
+
+.node-text-block {
+    padding-top: 8px;
+}
+
+.node-step-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.2px;
+    transition: var(--transition);
+}
+
+.node-step-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 500px;
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   SMOOTH TIMELINE HOVER ACTIONS
+   ========================================================================== */
+@media (hover: hover) {
+    .group-node:hover .node-number-stamp {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+        box-shadow: 0 0 0 5px rgba(0, 128, 128, 0.15);
+        transform: scale(1.05);
+    }
+
+    .group-node:hover .node-connecting-line {
+        background-color: var(--primary);
+    }
+
+    .group-node:hover .node-step-title {
+        color: var(--primary-dark);
+    }
+
+    .group-node:hover .node-step-description {
+        color: var(--dark);
+    }
+}
+
+/* ==========================================================================
+   RIGHT SIDEBAR: MODERN MEDIA FRAME WITH DEEP OVERLAYS
+   ========================================================================== */
+.process-visual-column {
     position: relative;
-}
-.process-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    box-sizing: border-box;
 }
 
-/* Mobile Responsive */
-@media (max-width: 992px) {
-    .process-wrapper {
-        grid-template-columns: 1fr;
-        padding: 30px;
+.visual-lens-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+}
+
+.process-fluid-image {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* High Contrast Premium Overlay Label Info Badge */
+.visual-badge-overlay {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background-color: rgba(15, 23, 42, 0.85); /* Slate Dark frosted glass look */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+    box-shadow: var(--shadow-md);
+}
+
+.visual-badge-overlay i {
+    color: var(--accent);
+}
+
+@media (hover: hover) {
+    .visual-lens-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    .visual-lens-card:hover .process-fluid-image {
+        transform: scale(1.04);
+    }
+}
+
+/* ==========================================================================
+   CROSS-DEVICE ULTRA-RESPONSIVE ADAPTABILITY ENGINE
+   ========================================================================== */
+/* Landscape Viewports / Small Desktop / Laptop Screen Scales */
+@media (max-width: 1024px) {
+    .process-split-layout {
         gap: 40px;
     }
-    .process-visual { min-height: 300px; }
-    .process-text h2 { font-size: 2rem; }
+    
+    .process-fluid-image {
+        height: 440px;
+    }
+}
+
+/* Medium Tablets & Mobile Landscapes (Break away from side-by-side split layout) */
+@media (max-width: 900px) {
+    .process-split-layout {
+        grid-template-columns: 1fr; /* Shift into unified stream column stacking */
+        gap: 55px;
+    }
+    
+    .process-visual-column {
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .process-fluid-image {
+        height: 380px;
+    }
+    
+    /* Touch optimization: immediately highlight numbers for clearer reading path */
+    .node-number-stamp {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+    }
+    
+    .node-step-title {
+        color: var(--primary-dark);
+    }
+}
+
+/* Portrait Small Smartphones / Micro Touch Panels */
+@media (max-width: 480px) {
+    .tisa-process-premium-section {
+        padding: 75px 0;
+    }
+    
+    .process-main-heading {
+        font-size: 1.85rem;
+    }
+    
+    .process-sub-prose {
+        margin-bottom: 35px;
+    }
+    
+    .process-timeline-node {
+        gap: 16px; /* Bring text closer to the timeline line */
+    }
+    
+    .node-number-stamp {
+        width: 38px;
+        height: 38px;
+        font-size: 0.85rem;
+    }
+    
+    .process-fluid-image {
+        height: 280px; /* Conserve valuable vertical view heights on short mobile frames */
+    }
+    
+    .visual-badge-overlay {
+        top: 16px;
+        left: 16px;
+        padding: 8px 14px;
+        font-size: 0.75rem;
+    }
 }
 
 
 
 
 
-
-.gallery-section { padding: 100px 0; background: var(--white); }
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.gallery-item {
+/* ==========================================================================
+   PRODUCTION ENGINE - NEAT & CLEAN UNIFORM LIGHT GALLERY
+   ========================================================================== */
+.tisa-gallery-clean-section {
     position: relative;
-    border-radius: 15px;
+    background-color: #F0F8FF !important; /* Pure white crisp canvas background */
+    padding: 60px 0;
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    box-sizing: border-box;
     overflow: hidden;
-    height: 300px; /* Fixed height for consistency */
-    cursor: pointer;
 }
 
-.gallery-item img {
+.gallery-clean-container {
+    max-width: 1240px;
+    width: 92%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Neat Minimal Header Style */
+.gallery-clean-header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-clean-pill {
+    display: inline-flex;
+    background-color: var(--bg-light);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+}
+
+.gallery-clean-heading {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.gallery-clean-subtext {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Perfectly Symmetric Grid Engine (3 Columns Desktop) */
+.gallery-clean-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   CARD ARCHITECTURE WITH SMOOTH DRAWER TRANSITIONS
+   ========================================================================== */
+.gallery-clean-card {
+    position: relative;
+    background-color: var(--bg-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.gallery-image-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Enforces absolute consistency for all image dimensions */
+    overflow: hidden;
+}
+
+.gallery-clean-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Eye-catching Hover Effect */
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-/* Subtle overlay on hover */
-.gallery-item::after {
-    content: "";
+/* Minimalist Clean Bottom Info Drawer */
+.gallery-minimal-drawer {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(10, 102, 194, 0.2); /* Your --primary color with transparency */
-    opacity: 0;
-    transition: 0.3s;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.96); /* Elegant white glass tray */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    padding: 20px 24px;
+    box-sizing: border-box;
+    transform: translateY(100%); /* Hidden beneath frame edge by default */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-item:hover::after { opacity: 1; }
+.gallery-clean-tag {
+    display: inline-block;
+    color: var(--primary-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
 
-/* Responsive adjustments */
+.gallery-clean-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0;
+}
+
+/* ==========================================================================
+   SMOOTH HOVER ACTIONS
+   ========================================================================== */
+@media (hover: hover) {
+    .gallery-clean-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(0, 128, 128, 0.2);
+    }
+
+    .gallery-clean-card:hover .gallery-clean-img {
+        transform: scale(1.05);
+    }
+
+    .gallery-clean-card:hover .gallery-minimal-drawer {
+        transform: translateY(0); /* Clean tray slides up into view smoothly */
+    }
+}
+
+/* ==========================================================================
+   CROSS-DEVICE UNIVERSAL BREAKPOINTS
+   ========================================================================== */
+/* Medium Laptops & Large Tablets (Switch gracefully to 2 Columns) */
+@media (max-width: 1024px) {
+    .gallery-clean-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Small Tablets & Touch Screens (Always Show Info - No Hover Needed) */
 @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item { height: 250px; }
+    .tisa-gallery-clean-section {
+        padding: 70px 0;
+    }
+
+    .gallery-clean-header {
+        margin-bottom: 35px;
+    }
+
+    /* Pull up the description panels statically since mobile lacks mouse-pointer hovering */
+    .gallery-minimal-drawer {
+        transform: translateY(0);
+        background-color: var(--white);
+        padding: 16px 20px;
+    }
+}
+
+/* Small Portrait Smartphones (1 Column Clean Stream) */
+@media (max-width: 480px) {
+    .gallery-clean-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-clean-heading {
+        font-size: 1.8rem;
+    }
+    
+    .gallery-minimal-drawer {
+        padding: 12px 16px;
+    }
+    
+    .gallery-clean-title {
+        font-size: 1rem;
+    }
 }
 
 
@@ -2428,80 +2846,470 @@ ul {
 
 
 
-.testimonials-section { padding: 100px 0; background: #F9FAFB; }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+/* ==========================================================================
+   PRODUCTION ENGINE - NEAT & EYE-CATCHING TESTIMONIAL GRID
+   ========================================================================== */
+.tisa-testimonials-premium-section {
+    position: relative;
+    background-color: var(--white) !important; /* Pure white crisp canvas background */
+    padding: 60px 0;
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    box-sizing: border-box;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-.testimonial-card {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    transition: all 0.4s ease;
+/* Back-layer subtle visual depth splash */
+.testimonials-ambient-splash {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 128, 128, 0.03) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
 }
 
-.testimonial-card:hover {
-    border-color: var(--primary);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+.testimonials-clean-container {
+    max-width: 1240px;
+    width: 92%;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-.stars { color: #F59E0B; margin-bottom: 15px; font-size: 1.1rem; }
-.testimonial-card p { font-style: italic; color: var(--dark); margin-bottom: 25px; line-height: 1.6; }
-.client-info h4 { font-size: 1rem; color: var(--primary); margin: 0; }
-.client-info span { font-size: 0.85rem; color: var(--text); }
-
-@media (max-width: 768px) {
-    .testimonials-section { padding: 60px 0; }
-}
-
-
-
-
-.areas-section { 
-    padding: 100px 0; 
-    background: #F0F7FF; /* Very light blue tint for visual appeal */
-}
-
-.areas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 40px 0;
-}
-
-.area-card {
-    background: var(--white);
-    padding: 20px;
-    border-radius: 12px;
+/* Header Framing */
+.testimonials-section-header {
     text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonials-pill-badge {
+    display: inline-flex;
+    background-color: var(--bg-light);
+    color: var(--primary);
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--dark);
+    padding: 6px 16px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
     border: 1px solid var(--border);
-    transition: all 0.3s ease;
+}
+
+.testimonials-main-title {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.testimonials-title-separator {
+    height: 4px;
+    width: 36px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    margin-top: 18px;
+    border-radius: 100px;
+}
+
+/* Perfect Horizontal Row Balance (3 Columns Desktop) */
+.testimonials-luxury-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   TRUST CARD ARCHITECTURE WITH HIGH-END TYPOGRAPHY
+   ========================================================================== */
+.testimonial-trust-card {
+    position: relative;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: var(--transition);
+}
+
+/* Large Clean Background Quote Accent */
+.testimonial-quote-mark {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    color: var(--bg-light);
+    line-height: 1;
+    user-select: none;
+    font-weight: 900;
+}
+
+/* Clean SVG Icon Row Star Tracking */
+.testimonial-star-row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.testimonial-star-row i {
+    color: #FBBF24; /* High-end clear gold rating hue */
+    font-size: 0.95rem;
+}
+
+.testimonial-client-prose {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin: 0 0 30px 0;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+/* Client Identity Footer Strip */
+.testimonial-client-info-tray {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+}
+
+/* Minimal Letter Avatar Badge */
+.client-avatar-placeholder {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(0, 128, 128, 0.06);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 0.88rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    border: 1px solid rgba(0, 128, 128, 0.1);
+    flex-shrink: 0;
 }
 
-.area-card:hover {
-    background: var(--primary);
-    color: var(--white);
-    transform: translateY(-5px);
-    border-color: var(--primary);
+.client-meta-stack {
+    display: flex;
+    flex-direction: column;
 }
 
-.area-footer { text-align: center; margin-top: 30px; font-size: 1.1rem; }
-.area-footer a { color: var(--primary); font-weight: 800; text-decoration: none; }
+.client-profile-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0 0 2px 0;
+    letter-spacing: -0.1px;
+}
 
+.client-profile-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SMOOTH DESKTOP INTERACTIVE HOVER ACTIONS
+   ========================================================================== */
+@media (hover: hover) {
+    .testimonial-trust-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(0, 128, 128, 0.2);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* ==========================================================================
+   CROSS-DEVICE UNIVERSAL BREAKPOINTS
+   ========================================================================== */
+/* Medium Laptops & Large Tablets (Wrap smoothly to 2 Columns) */
+@media (max-width: 1024px) {
+    .testimonials-luxury-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Small Tablets & Touch Screens Layout Shield */
 @media (max-width: 768px) {
-    .areas-grid { grid-template-columns: 1fr 1fr; }
+    .tisa-testimonials-premium-section {
+        padding: 80px 0;
+    }
+
+    .testimonials-section-header {
+        margin-bottom: 40px;
+    }
+    
+    .testimonial-trust-card {
+        padding: 32px 24px;
+    }
 }
+
+/* Small Portrait Smartphones (1 Column Pure Stream Stack) */
+@media (max-width: 520px) {
+    .testimonials-luxury-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .testimonials-main-title {
+        font-size: 1.8rem;
+    }
+
+    .testimonial-client-prose {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .testimonial-client-info-tray {
+        padding-top: 20px;
+    }
+}
+
+
+
+
+
+
+/* ==========================================================================
+   PRODUCTION ENGINE - HIGH-DENSITY LOCATION GRID STYLE
+   ========================================================================== */
+.premium-coverage-section {
+    position: relative;
+    background-color: var(--primary) !important; /* Pure white canvas spacing */
+    padding: 60px 0;
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    box-sizing: border-box;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.coverage-ambient-glow {
+    position: absolute;
+    bottom: -10%;
+    right: 5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 128, 128, 0.02) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.coverage-global-container {
+    max-width: 1240px;
+    width: 92%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Header Framing */
+.coverage-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coverage-pill-badge {
+    display: inline-flex;
+    background-color: var(--bg-light);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+}
+
+.coverage-main-title {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.coverage-title-indicator {
+    height: 4px;
+    width: 36px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    margin-top: 18px;
+    border-radius: 100px;
+}
+
+/* ==========================================================================
+   DYNAMIC AUTOMATIC MESH GRID DESIGN
+   ========================================================================== */
+.coverage-location-grid {
+    display: grid;
+    /* Automatically builds pristine asymmetric columns fitting maximum items beautifully */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    box-sizing: border-box;
+    margin-bottom: 45px;
+}
+
+/* Location Card Component Details */
+.location-trust-card {
+    position: relative;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.location-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: rgba(0, 128, 128, 0.05);
+    color: var(--primary);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.location-text-label {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.1px;
+}
+
+/* Elegant Action Footer Links */
+.coverage-action-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.coverage-footer-prose {
+    font-size: 1.05rem;
+    color: #111;
+    margin: 0;
+}
+
+.coverage-inline-link {
+    color: #111;
+    text-decoration: none;
+    font-weight: 800;
+    border-bottom: 2px solid rgba(0, 128, 128, 0.15);
+    padding-bottom: 2px;
+    transition: var(--transition);
+}
+
+.coverage-inline-link:hover {
+    color: #fff;
+    border-color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   INTERACTIVE REFINEMENTS (DESKTOP)
+   ========================================================================== */
+@media (hover: hover) {
+    .location-trust-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(0, 128, 128, 0.25);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .location-trust-card:hover .location-icon-wrapper {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+}
+
+/* ==========================================================================
+   CROSS-DEVICE BREATHING ROOM BREAKPOINTS
+   ========================================================================== */
+/* Medium Desktop & Laptops - Smooth Layout Compacting */
+@media (max-width: 1200px) {
+    .coverage-location-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+}
+
+/* Regular Landscape Tablets & Notebooks */
+@media (max-width: 992px) {
+    .coverage-location-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .premium-coverage-section {
+        padding: 80px 0;
+    }
+}
+
+/* Small Portrait Tablets & Phablets */
+@media (max-width: 768px) {
+    .coverage-location-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .coverage-section-header {
+        margin-bottom: 35px;
+    }
+}
+
+/* Small Portrait Mobile Screens */
+@media (max-width: 480px) {
+    .coverage-location-grid {
+        grid-template-columns: 1fr; /* Single stream stacked list avoids item squishing */
+        gap: 12px;
+    }
+    
+    .location-trust-card {
+        padding: 18px 20px;
+    }
+
+    .coverage-footer-prose {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+
+
+
+
 
 
 /* ===================================
