@@ -2596,206 +2596,236 @@ ul {
 
 
 
-/* ==========================================================================
-   PRODUCTION ENGINE - NEAT & CLEAN UNIFORM LIGHT GALLERY
-   ========================================================================== */
-.tisa-gallery-clean-section {
-    position: relative;
-    background-color: #F0F8FF !important; /* Pure white crisp canvas background */
-    padding: 60px 0;
-    width: 100vw !important;
-    left: 50% !important;
-    right: 50% !important;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
-    box-sizing: border-box;
-    overflow: hidden;
+
+
+
+/* Import Google Fonts to match the site's crisp typography style */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Base Layout Config */
+.cleaning-gallery-section {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F8FF; /* Crisp, clean off-white background */
+    padding: 80px 20px;
+    color: #334155;
 }
 
-.gallery-clean-container {
-    max-width: 1240px;
-    width: 92%;
+.gallery-container {
+    max-width: 1200px;
     margin: 0 auto;
-    box-sizing: border-box;
 }
 
-/* Neat Minimal Header Style */
-.gallery-clean-header {
+/* Header Text Styles */
+.gallery-header {
     text-align: center;
     margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.gallery-clean-pill {
-    display: inline-flex;
-    background-color: var(--bg-light);
-    color: var(--primary);
-    font-size: 0.75rem;
+.gallery-header .sub-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary); /* Bright Cyan/Teal Brand Color */
+    font-size: 14px;
     font-weight: 700;
-    padding: 6px 16px;
-    border-radius: 6px;
-    letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 14px;
-    border: 1px solid var(--border);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.gallery-clean-heading {
-    font-size: clamp(2rem, 3.5vw, 2.5rem);
-    font-weight: 800;
-    color: var(--dark);
-    margin: 0 0 12px 0;
-    letter-spacing: -0.5px;
+.gallery-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #0f172a; /* Deep Royal Navy Blue */
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.gallery-clean-subtext {
-    font-size: 0.98rem;
-    color: var(--text-muted);
-    max-width: 580px;
-    margin: 0;
+.gallery-header p {
+    font-size: 16px;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.6;
 }
 
-/* Perfectly Symmetric Grid Engine (3 Columns Desktop) */
-.gallery-clean-grid {
+/* Fluid Responsive Grid Setup */
+.gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for a clean look on desktop */
     gap: 30px;
-    box-sizing: border-box;
 }
 
-/* ==========================================================================
-   CARD ARCHITECTURE WITH SMOOTH DRAWER TRANSITIONS
-   ========================================================================== */
-.gallery-clean-card {
-    position: relative;
-    background-color: var(--bg-light);
-    border-radius: var(--radius);
+/* When there is an odd number of items (5), balance the last full-width card beautifully */
+.gallery-grid .gallery-card:last-child {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery-grid .gallery-card:last-child .card-image-wrapper {
+    width: 50%;
+    height: auto;
+}
+
+.gallery-grid .gallery-card:last-child .card-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Card Elements Wrapper */
+.gallery-card {
+    background-color: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
-    box-sizing: border-box;
-    transition: var(--transition);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery-image-frame {
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.09);
+}
+
+/* Combined Single-Frame Image Container */
+.card-image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3; /* Enforces absolute consistency for all image dimensions */
+    height: 260px; /* Uniform crop layout */
     overflow: hidden;
+    background-color: #e2e8f0;
 }
 
-.gallery-clean-img {
+.card-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Keeps aspect ratios clean without distorting image elements */
     display: block;
-    transform: scale(1);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s ease;
 }
 
-/* Minimalist Clean Bottom Info Drawer */
-.gallery-minimal-drawer {
+/* Subtle frame zoom on hover */
+.gallery-card:hover .card-image-wrapper img {
+    transform: scale(1.03);
+}
+
+/* Text overlays layout inside combined image structure */
+.split-labels {
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.96); /* Elegant white glass tray */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--border);
-    padding: 20px 24px;
-    box-sizing: border-box;
-    transform: translateY(100%); /* Hidden beneath frame edge by default */
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-gradient: vertical;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0));
+    pointer-events: none; /* Keeps native image hover working flawlessly */
 }
 
-.gallery-clean-tag {
-    display: inline-block;
-    color: var(--primary-dark);
-    font-size: 0.72rem;
+/* Clean UI Status Badges */
+.badge {
+    padding: 5px 14px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.gallery-clean-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--dark);
+.badge-before {
+    background-color: #ef4444; /* Clean Red indicator for raw Before state */
+}
+
+.badge-after {
+    background-color: #10b981; /* Fresh emerald Green indicator for finished Clean state */
+}
+
+/* Typography Container for Service Descriptions */
+.card-content {
+    padding: 26px;
+}
+
+.card-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #0f172a;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
     margin: 0;
 }
 
-/* ==========================================================================
-   SMOOTH HOVER ACTIONS
-   ========================================================================== */
-@media (hover: hover) {
-    .gallery-clean-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-        border-color: rgba(0, 128, 128, 0.2);
-    }
+/* --- Responsive Media Queries (Mobile Friendly) --- */
 
-    .gallery-clean-card:hover .gallery-clean-img {
-        transform: scale(1.05);
+/* Medium Devices (Tablets/Smaller Desktops) */
+@media (max-width: 992px) {
+    .gallery-header h2 {
+        font-size: 30px;
     }
-
-    .gallery-clean-card:hover .gallery-minimal-drawer {
-        transform: translateY(0); /* Clean tray slides up into view smoothly */
+    
+    .card-image-wrapper {
+        height: 220px;
     }
-}
-
-/* ==========================================================================
-   CROSS-DEVICE UNIVERSAL BREAKPOINTS
-   ========================================================================== */
-/* Medium Laptops & Large Tablets (Switch gracefully to 2 Columns) */
-@media (max-width: 1024px) {
-    .gallery-clean-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+    
+    .gallery-grid .gallery-card:last-child {
+        flex-direction: column;
+    }
+    
+    .gallery-grid .gallery-card:last-child .card-image-wrapper,
+    .gallery-grid .gallery-card:last-child .card-content {
+        width: 100%;
     }
 }
 
-/* Small Tablets & Touch Screens (Always Show Info - No Hover Needed) */
+/* Small Devices (Mobile Phones) */
 @media (max-width: 768px) {
-    .tisa-gallery-clean-section {
-        padding: 70px 0;
+    .cleaning-gallery-section {
+        padding: 50px 15px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Completely transitions to single column stacked design */
+        gap: 25px;
+    }
+    
+    .gallery-grid .gallery-card:last-child {
+        grid-column: span 1;
     }
 
-    .gallery-clean-header {
-        margin-bottom: 35px;
+    .gallery-header h2 {
+        font-size: 26px;
     }
 
-    /* Pull up the description panels statically since mobile lacks mouse-pointer hovering */
-    .gallery-minimal-drawer {
-        transform: translateY(0);
-        background-color: var(--white);
-        padding: 16px 20px;
+    .card-image-wrapper {
+        height: 200px;
+    }
+    
+    .card-content {
+        padding: 20px;
     }
 }
 
-/* Small Portrait Smartphones (1 Column Clean Stream) */
+/* Extra Tight Mobile Screens */
 @media (max-width: 480px) {
-    .gallery-clean-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .card-image-wrapper {
+        height: 180px;
     }
-    
-    .gallery-clean-heading {
-        font-size: 1.8rem;
-    }
-    
-    .gallery-minimal-drawer {
-        padding: 12px 16px;
-    }
-    
-    .gallery-clean-title {
-        font-size: 1rem;
+    .card-content h3 {
+        font-size: 18px;
     }
 }
+
+
+
 
 
 
@@ -3334,7 +3364,7 @@ ul {
 =================================== */
 
 .contact-form-box {
-    background: var(--white);
+    background: #F0F8FF;
     padding: clamp(20px, 4vw, 40px);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
